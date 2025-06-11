@@ -19,7 +19,7 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true,
     },
-    fullmane: {
+    fullname: {
       type: String,
       require: true,
       unique: true,
@@ -69,7 +69,7 @@ userSchema.methods.generateAccessToken = function () {
       _id: this._id,
       email: this.email,
       username: this.username,
-      fullmane: this.fullmane,
+      fullname: this.fullname,
     },
     process.env.ACCESS_TOKEN_SECRET,
     {
