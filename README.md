@@ -209,6 +209,53 @@ A robust backend API for a YouTube clone application with user authentication an
 }
 ```
 
+#### Get User Channel Profile
+- **GET** `/api/v1/users/c/:username`
+- **Description**: Get a user's channel profile by username
+- **Headers**: `Authorization: Bearer <access_token>`
+- **Response**:
+```json
+{
+  "statusCode": 200,
+  "data": {
+    "fullname": "John Doe",
+    "email": "john@example.com",
+    "username": "johndoe",
+    "avatar": "https://cloudinary.com/avatar-url",
+    "coverImage": "https://cloudinary.com/cover-url"
+  },
+  "message": "Channel profile fetched successfully",
+  "success": true
+}
+```
+
+#### Get Watch History
+- **GET** `/api/v1/users/history`
+- **Description**: Get current user's watch history
+- **Headers**: `Authorization: Bearer <access_token>`
+- **Response**:
+```json
+{
+  "statusCode": 200,
+  "data": [
+    {
+      "_id": "video_id",
+      "title": "Video Title",
+      "description": "Video Description",
+      "thumbnail": "https://cloudinary.com/thumbnail-url",
+      "videoFile": "https://cloudinary.com/video-url",
+      "owner": {
+        "fullname": "John Doe",
+        "username": "johndoe",
+        "avatar": "https://cloudinary.com/avatar-url"
+      }
+    }
+  ],
+  "message": "Watch History fetched",
+  "success": true
+}
+```
+
 ## Error Responses
 
 All endpoints return standardized error responses in the following format:
